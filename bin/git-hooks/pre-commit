@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+if [ -z ${GIT_DIR+x} ]; then GIT_DIR=`pwd`"/.git"; fi
+ROOT="$(dirname ${GIT_DIR})"
+
+do_or_die () { if [ $? -ne 0 ]; then exit 1; fi }
+
+git status --porcelain | grep -e '^[AM]\(.*\).php$' | cut -c 3- | while read line; do
+	php ${ROOT}/vendor/bin/php-cs-fixer fix --verbose ${ROOT}"/$line";
+	php ${ROOT}/vendor/bin/phpstan analyse ${ROOT}"/$line"; do_or_die;
+	git add ${ROOT}"/$line";
+done

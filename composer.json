@@ -1,0 +1,152 @@
+{
+    "name": "portal/generator",
+    "description": "Генерирует документы (данные для генерации документов отправляет портал: макеты, плейсхолдеры).",
+    "type": "service",
+    "license": "proprietary",
+    "keywords": ["symfony"],
+    "require": {
+        "php": "^7.2.5",
+        "ext-ctype": "*",
+        "ext-dom": "*",
+        "ext-iconv": "*",
+        "ext-json": "*",
+        "cweagans/composer-patches": "^1.6",
+        "doctrine/annotations": "^1.8",
+        "knplabs/knp-paginator-bundle": "^5.0",
+        "phpoffice/phpword": "^0.17.0",
+        "sensio/framework-extra-bundle": "^5.5",
+        "symfony/console": "4.4.*",
+        "symfony/debug": "4.4.*",
+        "symfony/dom-crawler": "4.4.*",
+        "symfony/dotenv": "4.4.*",
+        "symfony/flex": "^1.3.1",
+        "symfony/form": "4.4.*",
+        "symfony/framework-bundle": "4.4.*",
+        "symfony/http-client": "4.4.*",
+        "symfony/monolog-bundle": "^3.6",
+        "symfony/orm-pack": "^1.0",
+        "symfony/property-access": "4.4.*",
+        "symfony/serializer": "4.4.*",
+        "symfony/validator": "4.4.*",
+        "symfony/yaml": "4.4.*",
+        "local/migrate": "dev-master",
+        "local/php-error-log-bundle": "^1.1",
+        "local/response-bundle": "^1.0"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^2.16",
+        "phpstan/phpstan": "^0.12.3",
+        "symfony/maker-bundle": "^1.14",
+        "symfony/phpunit-bridge": "^5.0",
+        "symfony/var-dumper": "4.4.*"
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "discard-changes": true,
+        "archive-format": "zip",
+        "platform": {
+            "php": "7.2.5"
+        }
+    },
+    "prefer-stable": true,
+    "minimum-stability" : "dev",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "App\\Tests\\": "tests/"
+        }
+    },
+    "replace": {
+        "paragonie/random_compat": "2.*",
+        "symfony/polyfill-ctype": "*",
+        "symfony/polyfill-iconv": "*",
+        "symfony/polyfill-php71": "*",
+        "symfony/polyfill-php70": "*",
+        "symfony/polyfill-php56": "*"
+    },
+    "scripts": {
+        "auto-scripts": {
+            "cache:clear": "symfony-cmd",
+            "assets:install %PUBLIC_DIR%": "symfony-cmd"
+        },
+        "post-install-cmd": [
+            "@auto-scripts"
+        ],
+        "post-update-cmd": [
+            "@auto-scripts"
+        ]
+    },
+    "conflict": {
+        "symfony/symfony": "*"
+    },
+    "extra": {
+        "symfony": {
+            "allow-contrib": false,
+            "require": "4.4.*"
+        },
+        "patches": {
+            "phpoffice/phpword": {
+                "Bold numbers in list numbering": "composer-patches/boldNumbersInList.patch",
+                "Bugfix of replacing block": "composer-patches/fixOfReplaceBlockBug.patch",
+                "Bugfix of cloning block": "composer-patches/fixOfCloneBlockBug.patch"
+            }
+        },
+        "enable-patching": true
+    },
+    "repositories": {
+        "theia_console": {
+            "type": "vcs",
+            "url": "git@gitlab.local.ru:tt/theia/component/console.git"
+        },
+        "theia_logger": {
+            "type": "vcs",
+            "url": "git@gitlab.local.ru:tt/theia/component/logger.git"
+        },
+        "theia_type": {
+            "type": "vcs",
+            "url": "git@gitlab.local.ru:tt/theia/component/type.git"
+        },
+        "theia_fs": {
+            "type": "vcs",
+            "url": "git@gitlab.local.ru:tt/theia/component/fs.git"
+        },
+        "theia_db": {
+            "type": "vcs",
+            "url": "git@gitlab.local.ru:tt/theia/component/db.git"
+        },
+        "theia_curl": {
+            "type": "vcs",
+            "url": "git@gitlab.local.ru:tt/theia/component/curl.git"
+        },
+        "theia_deploy": {
+            "type": "vcs",
+            "url": "git@gitlab.local.ru:tt/theia/deploy.git"
+        },
+        "theia_morpher": {
+            "type": "vcs",
+            "url": "git@gitlab.local.ru:tt/theia/component/morpher.git"
+        },
+        "migrate": {
+            "type": "vcs",
+            "url": "git@gitlab.local.ru:tt/utility/migrate.git"
+        },
+        "response-bundle": {
+            "type": "vcs",
+            "url": "git@gitlab.local.ru:tt/bundle/response-bundle.git"
+        },
+        "php-error-log-bundle": {
+            "type": "vcs",
+            "url": "git@gitlab.local.ru:tt/bundle/php-error-log-bundle.git"
+        },
+        "php_error_log": {
+            "type": "vcs",
+            "url": "git@gitlab.local.ru:tt/library/php_error_log.git"
+        }
+    }
+}

@@ -1,0 +1,9 @@
+imports:
+    - { resource: "@LocalPhpErrorLogBundle/Resources/config/packages/prod/monolog.yaml" }
+
+monolog:
+    handlers:
+        console:
+            type: console
+            process_psr_3_messages: false
+            channels: ["!event", "!doctrine"]

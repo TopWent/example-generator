@@ -1,0 +1,2 @@
+local_response:
+    service_name: '%env(resolve:APP_SERVICE)%'

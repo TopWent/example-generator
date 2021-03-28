@@ -1,0 +1,13 @@
+diff --git a/src/PhpWord/TemplateProcessor.php b/src/PhpWord/TemplateProcessor.php
+index 7efc0f1a..fa3b5670 100644
+--- a/src/PhpWord/TemplateProcessor.php
++++ b/src/PhpWord/TemplateProcessor.php
+@@ -777,7 +777,7 @@ class TemplateProcessor
+     {
+         $matches = array();
+         preg_match(
+-            '/(<\?xml.*)(<w:p.*>\${' . $blockname . '}<\/w:.*?p>)(.*)(<w:p.*\${\/' . $blockname . '}<\/w:.*?p>)/is',
++            '/(<\?xml.*)(<w:p\b.*>\${' . $blockname . '}<\/w:.*?p>)(.*)(<w:p\b.*\${\/' . $blockname . '}<\/w:.*?p>)/is',
+             $this->tempDocumentMainPart,
+             $matches
+         );

@@ -1,0 +1,8 @@
+#!/bin/sh
+
+CMD="./vendor/bin/migrate"
+CONFIG="./deploy/migrate.php"
+MIGRATES="./migrates"
+DEFAULT_CONNECTION="generator"
+
+${CMD} --config=${CONFIG} --migrates=${MIGRATES} --default-connection="${DEFAULT_CONNECTION}" $@

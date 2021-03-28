@@ -1,0 +1,65 @@
+# tmp files
+*~
+._*
+*.log
+
+# OS
+.DS_Store
+.Trashes
+.Spotlight-V100
+Thumbs.db
+Desktop.ini
+touch
+
+# IDE
+/.settings/
+.idea
+!/.idea/codeStyles/Project.xml
+.classpath
+.buildpath
+.project/cache/
+.realsync
+*.iml
+*.iws
+*.swp
+*.sublime-project
+*.sublime-workspace
+
+## Deploy
+!/deploy/
+/deploy/*
+!/deploy/templates
+!/deploy/dev
+
+# Project
+###> symfony/framework-bundle ###
+/.env.local
+/.env.local.php
+/.env.*.local
+/public/bundles/
+/vendor/
+###< symfony/framework-bundle ###
+
+/docker/dev/nginx/sites-enabled/*
+!/docker/dev/nginx/sites-enabled/.gitkeep
+
+docker-compose.yml
+/dockerization/mysql/
+/dockerization/composer/
+/.idea/
+docker/logs/
+docker/.db/
+auth.json
+
+###> friendsofphp/php-cs-fixer ###
+/.php_cs.cache
+###< friendsofphp/php-cs-fixer ###
+
+###> symfony/phpunit-bridge ###
+.phpunit
+.phpunit.result.cache
+/phpunit.xml
+###< symfony/phpunit-bridge ###
+
+/var/cache/*
+!/var/cache/.gitkeep

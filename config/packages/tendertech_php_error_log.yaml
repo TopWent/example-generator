@@ -1,0 +1,5 @@
+local_php_error_log:
+    service_name: '%env(resolve:APP_SERVICE)%'
+    gelf:
+        host: '%env(resolve:APP_GELF_HOST)%'
+        port: '%env(resolve:APP_GELF_PORT)%'

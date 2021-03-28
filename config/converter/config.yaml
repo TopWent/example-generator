@@ -1,0 +1,15 @@
+# Сответствие html-шаблона типу конвертера
+# Нужно обязательно заполнить, потому что конвертеры для разных шаблонов могут быть разными
+# Доступные типы конвертероа смотри в классе App\Service\Converter\DocumentFiller\FillerFactory
+
+agreement_layout.html: agreement_layout
+bg_layout.html: bg_layout
+bgModel44bgut.html: bg_layout_peresvet
+bgModel44bgikPrepaid.html: bg_layout_peresvet
+bgModel44bgikNoPrepaid.html: bg_layout_peresvet
+bgModel185bgikNoPrepaid.html: bg_layout_peresvet
+bgModel185bgikPrepaid.html: bg_layout_peresvet
+bgModel223bgikPrepaid.html: bg_layout_peresvet
+bgModel223bgikNoPrepaid.html: bg_layout_peresvet
+bgModel223bgut.html: bg_layout_peresvet
+agreement.html: agreement_layout

@@ -1,0 +1,60 @@
+diff --git a/src/PhpWord/Style/NumberingLevel.php b/src/PhpWord/Style/NumberingLevel.php
+index e9b32f01..97d06c2e 100644
+--- a/src/PhpWord/Style/NumberingLevel.php
++++ b/src/PhpWord/Style/NumberingLevel.php
+@@ -118,6 +118,13 @@ class NumberingLevel extends AbstractStyle
+      */
+     private $font;
+ 
++    /**
++     * Bold style of number
++     *
++     * @var bool
++     */
++    private $bold;
++
+     /**
+      * Hint default|eastAsia|cs
+      *
+@@ -432,6 +439,29 @@ class NumberingLevel extends AbstractStyle
+         return $this;
+     }
+ 
++    /**
++     * Get bold
++     *
++     * @return bool|null
++     */
++    public function getBold(): ?bool
++    {
++        return $this->bold;
++    }
++
++    /**
++     * Set bold
++     *
++     * @param bool|null $value
++     * @return self
++     */
++    public function setBold(?bool $value): self
++    {
++        $this->bold = $value;
++
++        return $this;
++    }
++
+     /**
+      * Get hint
+      *
+diff --git a/src/PhpWord/Writer/Word2007/Part/Numbering.php b/src/PhpWord/Writer/Word2007/Part/Numbering.php
+index 61e5cc23..c10ed3cf 100644
+--- a/src/PhpWord/Writer/Word2007/Part/Numbering.php
++++ b/src/PhpWord/Writer/Word2007/Part/Numbering.php
+@@ -179,6 +179,7 @@ class Numbering extends AbstractPart
+         $hint = $level->getHint();
+ 
+         $xmlWriter->startElement('w:rPr');
++        $xmlWriter->writeElementIf($level->getBold(), 'w:b');
+         $xmlWriter->startElement('w:rFonts');
+         $xmlWriter->writeAttributeIf($font !== null, 'w:ascii', $font);
+         $xmlWriter->writeAttributeIf($font !== null, 'w:hAnsi', $font);
